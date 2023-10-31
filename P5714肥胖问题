@@ -1,0 +1,97 @@
+#include <stdio.h>
+int main()
+{
+	double m = 0.0;
+	double h = 0.0;
+	double bmi = 0.0;
+	int c = 0;
+	int arr[8] = {0};
+	int i = 0;
+	int k = 0;
+	scanf("%lf %lf",&m,&h);
+	bmi = m / (h*h);
+	if(bmi<18.5)
+	{
+		printf("Underweight");
+	}
+	else if(bmi>=18.5&&bmi<24)
+	{
+		printf("Normal");
+	}
+	else
+	{
+		c = bmi * 1000000;//八位数 
+		i = 7;
+		while(c!=0)
+		{
+			k = c % 10;
+			arr[i] = k;
+			c = c / 10;
+			i--;
+		}
+		//判断是否有后缀零
+		if((((int)bmi)%100)>=10)
+		{
+			//有效数字6位
+			if(arr[5]==0&&arr[4]!=0)
+			{
+				printf("%.3lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[5]==0&&arr[4]==0&&arr[3]!=0)
+			{
+				printf("%.2lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[5]==0&&arr[4]==0&&arr[3]==0&&arr[2]!=0)
+			{
+				printf("%.1lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[5]==0&&arr[4]==0&&arr[3]==0&&arr[2]==0)
+			{
+				printf("%d",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[5]!=0)
+			{
+				printf("%.4lf",bmi);
+				printf("\nOverweight");
+			} 
+		}
+		else
+		{
+			if(arr[6]==0&&arr[5]!=0)
+			{
+				printf("%.4lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[6]==0&&arr[5]==0&&arr[4]!=0)
+			{
+				printf("%.3lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[6]==0&&arr[5]==0&&arr[4]==0&&arr[3]!=0)
+			{
+				printf("%.2lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[6]==0&&arr[5]==0&&arr[4]==0&&arr[3]==0&&arr[2]!=0)
+			{
+				printf("%.1lf",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[6]==0&&arr[5]==0&&arr[4]==0&&arr[3]==0&&arr[2]==0)
+			{
+				printf("%d",bmi);
+				printf("\nOverweight");
+			}
+			if(arr[6]!=0)
+			{
+				printf("%.5lf",bmi);
+				printf("\nOverweight");
+			}
+		}
+	}
+	return 0;
+}

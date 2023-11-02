@@ -1,0 +1,49 @@
+#include <stdio.h>
+void fun(char ch[],int i,char arr[],int k);
+int main()
+{
+	char ch[100];
+	char arr[100]={0};
+	int i = 0;
+	int k = 0;
+	scanf("%s",ch);
+	fun(ch,i,arr,k);
+	while(arr[k]!='\0')
+	{
+		printf("%c",arr[k]);
+		k++;
+	}
+	return 0;
+}
+void fun(char ch[],int i,char arr[],int k)
+{
+	while(1)
+	{
+		while(ch[i]!='*')
+		{
+			arr[k]=ch[i];
+			again:
+			i++;
+			if(ch[i]=='\0')
+			{
+				return;
+			}
+			if(ch[i]=='*')
+			{
+				goto again;	
+			}
+			else
+			{
+				k++;
+				arr[k]=ch[i];
+				goto again;
+			}	
+		}
+		if(ch[i]=='*')
+		{
+			arr[k]=ch[i];
+			i++;
+			k++;
+		}
+	}	
+}

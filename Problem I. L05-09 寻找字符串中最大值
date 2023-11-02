@@ -1,0 +1,33 @@
+#include <stdio.h>
+int main()
+{
+	char ch[10000];
+	int i = 0;
+	int k = 0;
+	char max;
+	while((ch[i]=getchar())!=EOF)
+	{
+		i++;
+	}
+	max = ch[0];
+	i=1;
+	while(ch[i]!=EOF)
+	{
+		if(max<ch[i])
+		{
+			max=ch[i];
+		}
+		i++;
+	}
+	i=0;
+	while(ch[i]!=EOF)
+	{
+		if(ch[i]==max)
+		{
+			k++;
+		}
+		i++;
+	}
+	printf("%d",k);
+	return 0;
+}
